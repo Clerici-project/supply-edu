@@ -169,7 +169,7 @@ function setupCharts() {
 }
 
 function fetchTotalSupply() {
-    fetch("https://localmonero.co/blocks/api/get_stats")
+    fetch("https://explorer.clericiproject.com/api/networkinfo")
         .then(response => response.json())
         .then(data => {
             const totalSupplySpan = document.getElementById("current-total-supply");
