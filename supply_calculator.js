@@ -19,7 +19,7 @@ function getCirculatingSupplyOfBlock(blockHeight, startHeight, startSupply) {
     return startSupply;
 }
 
-const dateOfFirstMinedBlock = new Date(2014, 4, 18, 10, 49, 53)
+const dateOfFirstMinedBlock = new Date(2022, 4, 28, 10, 49, 53)
 function getExpectedDateOfBlock(blockHeight) {
     if(blockHeight > hydrogenHelixActivationHeight) {
         const expectedBeforeUpdate = new Date(dateOfFirstMinedBlock.getTime() + hydrogenHelixActivationHeight * 60000);
@@ -62,7 +62,7 @@ function getDataPoints(maxBlockHeight, step) {
         var t0 = performance.now()
         let supplyOfBlock = getCirculatingSupplyOfBlock(blockHeight, lastBlockHeight, lastSupply);
         var t1 = performance.now()
-        console.log("Monero supply calc took " + (t1 - t0) + " milliseconds.")
+        console.log("Clerici supply calc took " + (t1 - t0) + " milliseconds.")
 
         let baseRewardOfBlock = getBaseRewardForBlock(blockHeight, supplyOfBlock, false);
         let baseRewardOfBlockWithoutUpdate = getBaseRewardForBlock(blockHeight, supplyOfBlock, true);
@@ -123,7 +123,7 @@ function setupCharts() {
     let start = performance.now()
     const dataPoints = getDataPoints(12040000, 500000);
     let finish = performance.now()
-    console.log("Monero calculation took some " + (finish - start) + " milliseconds.");
+    console.log("Clerici calculation took some " + (finish - start) + " milliseconds.");
 
     const bitcoinDataPoints = getBitcoinDataPoints(0, 2660000, 210000)
 
@@ -132,7 +132,7 @@ function setupCharts() {
             theme: "light",
             responsive: true,
             axisY:{
-                title:"Total XMR supply",
+                title:"Total CLC supply",
             },
             data: [
                 {
